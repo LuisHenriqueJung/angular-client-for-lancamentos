@@ -1,0 +1,71 @@
+<link rel="stylesheet" href="https://unpkg.com/primeflex@^3/primeflex.css">
+
+<div class="container">
+  <form  #pessoaForm="ngForm" (submit)="cadastrar(pessoaForm)">
+  <div class="grid">
+    <div class="col-12">
+      <h1>Nova Pessoa</h1>
+    </div>
+  </div>
+  <div class="grid">
+    <div class="lg:col-12 col-12 md:col-12 p-fluid">
+      <label for="">Nome</label>
+      <input  type="text"  class="p-inputtext-sm" pInputText name="nome" [(ngModel)]="pessoa.nome" ngModel #nome="ngModel"  required minlength="5"  >
+     <!-- <app-message [control]="nome.control" error="required" message="Informe um nome!" ></app-message>-->
+      <!--<app-message [control]="nome.control" error="minlength" message="Mínimo de {{nome.errors?.['minlength']?.requiredLength}} caracteres"></app-message>-->
+    </div>
+  </div>
+  <div class="grid">
+    <div class=" lg:col-9 col-12 md:col-12 p-fluid">
+      <label for="">Logradouro</label>
+      <input type="text" class="p-inputtext-sm" pInputText name="logradouro" [(ngModel)]="pessoa.endereco!.logradouro" ngModel #logradouro="ngModel" required >
+      <!--<app-message [control]="logradouro.control" error="required" message="Informe um logradouro!" ></app-message>-->
+
+    </div>
+    <div class=" lg:col-3 col-12 md:col-12 p-fluid">
+      <label for="">Número</label>
+      <p-inputNumber class="p-inputtext-sm"  [required]="true" ngModel [(ngModel)]="pessoa.endereco!.numero" name="numero"   #numero="ngModel"></p-inputNumber>
+      <!--<app-message [control]="numero.control" error="required" message="Informe um numero!" ></app-message>-->
+    </div>
+  </div>
+  <div class="grid ">
+    <div class="lg:col-4 col-12 md:col-12 p-fluid  row-gap-3">
+      <label for="">Complemento (Casa, Apto, Bloco, etc)</label>
+      <input #complemento="ngModel" ngModel  [(ngModel)]="pessoa.endereco!.complemento" name="complemento" type="text" class="p-inputtext-sm" pInputText>
+    </div>
+    <div class="lg:col-4 col-12  md:col-12 p-fluid">
+      <label for="">Bairro</label>
+      <input #bairro="ngModel" ngModel [(ngModel)]="pessoa.endereco!.bairro" name="bairro" required minlength="3" type="text"class="p-inputtext-sm" pInputText>
+     <!-- <app-message [control]="bairro.control" error="required" message="Informe um bairro!" ></app-message>-->
+    </div>
+    <div class="lg:col-4 col-12 md:col-12 p-fluid">
+      <label for="">CEP</label>
+      <p-inputMask mask="99.999-999" #cep="ngModel" ngModel [(ngModel)]="pessoa.endereco!.cep" name="cep" placeholder="99.999-999" [required]="true"></p-inputMask>
+      <!--<app-message [control]="cep.control" error="required" message="Informe um cep!" ></app-message>-->
+    </div>
+  </div>
+  <div class="grid">
+    <div class="lg:col-6 col-12 md:col-12 p-fluid">
+      <label for="">Cidade</label>
+      <input #cidade="ngModel" ngModel [(ngModel)]="pessoa.endereco!.cidade" name="cidade" required minlength="3" type="text"class="p-inputtext-sm" pInputText>
+      <!--<app-message [control]="cidade.control" error="required" message="Informe um cidade!" ></app-message>-->
+      <!--<app-message [control]="cidade.control" error="minlength" message="Mínimo de {{cidade.errors?.['minlength']?.requiredLength}} caracteres"></app-message>-->
+    </div>
+    <div class="lg:col-6 col-12 md:col-12 p-fluid">
+      <label for="">Estado</label>
+      <input #estado="ngModel" ngModel [(ngModel)]="pessoa.endereco!.estado" name="estado" required type="text"class="p-inputtext-sm" pInputText>
+      <!--<app-message [control]="estado.control" error="required" message="Informe um estado!" ></app-message>-->
+    </div>
+  </div>
+  <div class="grid">
+    <div class="lg:col-1 col-12 md:col-12 p-flud">
+      <p-button [disabled]="pessoaForm.invalid!" styleClass="p-button-sm"type="Submit">Salvar</p-button>
+    </div>
+
+    <div class="lg:col-2 col-12 md:col-12 ">
+      <a routerLink="/pessoas">Voltar para a pesquisa</a>
+    </div>
+  </div>
+</form>
+
+</div>
