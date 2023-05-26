@@ -4,7 +4,7 @@ import { ButtonModule } from "primeng/button";
 import { InputTextModule } from "primeng/inputtext";
 import { TabViewModule } from "primeng/tabview";
 import { TooltipModule } from "primeng/tooltip";
-import { FormsModule } from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { SelectButtonModule } from "primeng/selectbutton";
 import { CalendarModule } from "primeng/calendar";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
@@ -20,6 +20,7 @@ import { DatePipe, registerLocaleData } from "@angular/common";
 import { InputTextareaModule } from 'primeng/inputtextarea';
 import { RouterModule } from "@angular/router";
 import { LancamentosRoutingModule } from "./lancamentos-routing.module";
+import { SharedModule } from "../shared/shared.module";
 
 registerLocaleData(localePt);
 
@@ -41,7 +42,10 @@ registerLocaleData(localePt);
     InputMaskModule,
     ButtonModule,
     InputTextareaModule,
-    LancamentosRoutingModule
+    LancamentosRoutingModule,
+    ReactiveFormsModule,
+    SharedModule
+
     ],
     declarations: [
       CadastroLancamentosComponentComponent,

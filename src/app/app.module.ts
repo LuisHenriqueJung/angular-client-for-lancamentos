@@ -13,13 +13,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DropdownModule } from 'primeng/dropdown';
 import { InputMaskModule } from 'primeng/inputmask';
 import { InputNumberModule } from 'primeng/inputnumber';
-import { MessageComponent } from './message/message.component';
 import { ToastModule} from 'primeng/toast'
 import { ConfirmationService, MessageService } from 'primeng/api';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { registerLocaleData } from '@angular/common';
 import localePt from '@angular/common/locales/pt';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 
 import { CoreModule,  } from './core/core.module';
 import { LancamentosService } from './lancamentos/lancamentos.service';
@@ -29,6 +28,7 @@ import { LancamentosRoutingModule } from './lancamentos/lancamentos-routing.modu
 import { SegurancaModule } from './seguranca/seguranca.module';
 import { LancamentosModule } from './lancamentos/lancamentos.module';
 import { PessoasModule } from './paessoas/pessoas.module';
+import { MoneyHttpInterceptor } from './seguranca/money-http-interceptor';
 
 
 
@@ -37,7 +37,6 @@ registerLocaleData(localePt);
 @NgModule({
   declarations: [
     AppComponent,
-    MessageComponent,
   ],
   imports: [
 
@@ -67,7 +66,10 @@ registerLocaleData(localePt);
     MessageService,
     ConfirmationService,
     CategoriasService,
-    { provide: LOCALE_ID, useValue: 'pt-BR' }
+    { provide: LOCALE_ID, useValue: 'pt-BR' },
+   { provide: HTTP_INTERCEPTORS,
+    useClass: MoneyHttpInterceptor,
+    multi: true}
   ],
   bootstrap: [AppComponent]
 })

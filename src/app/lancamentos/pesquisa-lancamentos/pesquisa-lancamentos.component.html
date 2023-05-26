@@ -71,8 +71,8 @@
               </div>
           </td>
           <td style="text-align: right;">
-            <p-button  pTooltip="Editar" routerLink="/lancamentos/{{lancamento.codigo}}" tooltipPosition="left" icon="pi pi-pencil" styleClass="p-button-rounded p-button-primary p-button-text p-button-sm"></p-button>
-            <p-button (onClick)="confirmarExclusao(lancamento.codigo)" pTooltip="Excluir" tooltipPosition="left" icon="pi pi-trash" styleClass="p-button-rounded p-button-primary p-button-text p-button-sm"></p-button>
+            <p-button   pTooltip="Editar" routerLink="/lancamentos/{{lancamento.codigo}}" tooltipPosition="left" icon="pi pi-pencil" styleClass="p-button-rounded p-button-primary p-button-text p-button-sm"></p-button>
+            <p-button [disabled]="!temPermissao('ROLE_REMOVER_LANCAMENTO')" (onClick)="confirmarExclusao(lancamento.codigo)" pTooltip="Excluir" tooltipPosition="left" icon="pi pi-trash" styleClass="p-button-rounded p-button-primary p-button-text p-button-sm"></p-button>
           </td>
           </tr>
         </ng-template>

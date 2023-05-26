@@ -65,7 +65,7 @@ export class PesquisaPessoasComponentComponent implements OnInit{
     this.pessoaService.excluir(codigo).then(()=> {
       this.tabelaPessoas.first = 0;
       this.messageService.add({ severity: 'success', summary: 'Excluído', detail: 'O registro foi excluído com sucesso!' });
-
+      this.pesquisar()
     }).catch(error => this.errorHandler.handle(error))
   }
   alterarStatus(pessoa: any ){

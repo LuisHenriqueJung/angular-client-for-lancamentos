@@ -5,7 +5,7 @@ import { NavbarComponentComponent } from './navbar-component/navbar-component.co
 import { ErrorHandlerService } from './error-handler.service';
 import { PaginaNaoEncontrataComponent } from './pagina-nao-encontrata.component';
 import { AuthService } from '../seguranca/auth.service';
-import { FormsModule } from '@angular/forms';
+import { NaoAutorizadoComponent } from './nao-autorizado.component';
 
 
 
@@ -13,7 +13,7 @@ import { FormsModule } from '@angular/forms';
   declarations: [
     NavbarComponentComponent,
     PaginaNaoEncontrataComponent,
-
+    NaoAutorizadoComponent
   ],
   imports: [
     CommonModule,

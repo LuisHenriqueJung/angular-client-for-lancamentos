@@ -1,18 +1,21 @@
-<nav class="navbar">
 
-  <div class="container">
-    <div class="grid">
-      <div class="col-12">
+<nav class="navbar menubar">
+
+  <div  >
+      <div style="float: left; padding-left: 70px;" >
         <a href="javascript:;" class="navbar-toggle" (click)="exibindoMenu = !exibindoMenu"><i class="pi pi-bars"></i></a>
       </div>
-    </div>
+      <div  class="name" >
+       Olá,  {{usuarioLogado}}
+      </div>
   </div>
 
   <ul class="navbar-menu" [hidden]="!exibindoMenu">
-    <li class="navbar-usuario">Usuário</li>
-    <li class="navbar-menuitem" routerLinkActive="ativo"><a routerLink="/lancamentos">Lançamentos</a></li>
-    <li class="navbar-menuitem"routerLinkActive="ativo"><a routerLink="/pessoas">Pessoas</a></li>
-    <li class="navbar-menuitem"routerLinkActive="ativo"><a routerLink="/login">Logout</a></li>
+    <li  class="navbar-usuario">{{ usuarioLogado }}  <i (click)="exibindoMenu = !exibindoMenu" style="cursor: pointer;float: right;" class="pi pi-times"></i> </li>
+    <li  routerLink="/lancamentos" (click)="exibindoMenu = !exibindoMenu" class="navbar-menuitem" routerLinkActive="ativo"><a >Lançamentos</a></li>
+    <li routerLink="/pessoas"  (click)="exibindoMenu = !exibindoMenu"  *ngIf="temPermissao('ROLE_PESQUISAR_PESSOA')" class="navbar-menuitem"routerLinkActive="ativo"><a >Pessoas</a></li>
+    <hr  >
+    <li class="navbar-menuitem"(click)="logout()"><a style="cursor: pointer;">Sair</a></li>
   </ul>
 
 </nav>

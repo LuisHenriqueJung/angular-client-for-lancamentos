@@ -6,9 +6,10 @@
 <app-cadastro-lancamentos-component></app-cadastro-lancamentos-component>
 <app-cadatro-pessoa-component></app-cadatro-pessoa-component>
 -->
-<app-navbar-component></app-navbar-component>
+<div style="height: 50px;"></div>
+<app-navbar-component *ngIf="exibirNavbar()"></app-navbar-component>
 <router-outlet></router-outlet>
-<p-toast></p-toast>
+<p-toast style=" z-index: 1;" ></p-toast>
 <p-confirmDialog>
 
 </p-confirmDialog>

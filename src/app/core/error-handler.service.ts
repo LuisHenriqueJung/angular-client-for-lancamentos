@@ -1,13 +1,15 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { MessageService } from 'primeng/api';
+import { NotAuthticatedError } from '../seguranca/money-http-interceptor';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ErrorHandlerService {
 
-  constructor(private messageService: MessageService) {}
+  constructor(private messageService: MessageService,private router: Router) {}
 
 handle(errorResponser : any ){
   let msg : string;
@@ -20,7 +22,11 @@ if(typeof errorResponser ==='string'){
     }catch (e){
 
     }
-}else {
+}else if( errorResponser instanceof NotAuthticatedError){
+  this.router.navigate(['login'])
+  msg = 'Você foi desconectado em função de inatividade'
+}
+else {
   msg = 'Erro ao acessar serviço remoto. Tente novamente!'
   console.log('Ocorreu um erro', errorResponser)
 }

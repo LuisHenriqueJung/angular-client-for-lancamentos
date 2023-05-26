@@ -2,6 +2,7 @@ import { LancamentoFiltro, LancamentosService } from './../lancamentos.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ConfirmEventType, ConfirmationService, LazyLoadEvent, MessageService, PrimeNGConfig } from 'primeng/api';
 import { ErrorHandlerService } from 'src/app/core/error-handler.service';
+import { AuthService } from 'src/app/seguranca/auth.service';
 
 @Component({
   selector: 'app-pesquisa-lancamentos',
@@ -20,7 +21,8 @@ export class PesquisaLancamentosComponent implements OnInit {
     private messageService : MessageService,
     private confirmationService: ConfirmationService,
     private config: PrimeNGConfig,
-    private erroHandler: ErrorHandlerService
+    private erroHandler: ErrorHandlerService,
+    private authService: AuthService
   ){}
 
 
@@ -70,11 +72,10 @@ export class PesquisaLancamentosComponent implements OnInit {
       this.pesquisar()
       this.messageService.add({ severity: 'success', summary: 'Sucesso', detail: 'Lancamento excluído com sucesso!' })
     }).catch(erro => this.erroHandler.handle(erro))
-
-
-
   }
-
+  temPermissao(permissao: string){
+    return this.authService.temPermissao(permissao)
+}
 
 
   ngOnInit(): void {

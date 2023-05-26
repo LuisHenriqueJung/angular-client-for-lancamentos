@@ -7,15 +7,16 @@
   color: #fff;
 }
 
+
 .navbar-menu {
   position: fixed;
   top: 0;
   bottom: 0;
-  right: 0;
+  right: 100;
   width: 210px;
   margin: 0;
   padding: 0;
-  z-index: 9998;
+  z-index: 99;
 
   background-color: #3a3633;
 
@@ -26,14 +27,20 @@
   padding: 15px;
   margin-bottom: 15px;
   border-bottom: 1px solid #525151;
-
-  text-transform: uppercase;
   font-weight: bold;
   color: #fff;
 }
-
+.name{
+  padding: 0px;
+  margin-bottom: 0px;
+  float: right;
+  padding-right: 70px;
+  font-weight: bold;
+  color: #fff;
+}
 .navbar-menuitem {
   padding: 15px;
+  cursor: pointer;
 }
 
 .navbar-menuitem a {
@@ -41,9 +48,16 @@
   text-decoration: none;
 }
 
-.navbar-menuitem a:hover {
-  color: #fff;
+.navbar-menuitem:hover {
+  background-color: #555250;;
 }
 .navbar-menuitem.ativo{
-  background-color: #555250;
+  background-color: #696664;
+}
+.menubar{
+  position: fixed;
+  right: 0;
+  top: 0%;
+  z-index: 999;
+  width: 100%;
 }

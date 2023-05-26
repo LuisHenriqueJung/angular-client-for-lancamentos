@@ -1,12 +1,15 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CategoriasService {
-  categoriasUrl = 'http://localhost:8080/categorias'
-  constructor(private http: HttpClient) { }
+  categoriasUrl: string
+  constructor(private http: HttpClient) {
+    this.categoriasUrl = `${environment.apiUrl}/categorias`
+   }
   listarTodas(): Promise<any> {
     return this.http.get(this.categoriasUrl).toPromise().then((response: any) => {return response})
   }
