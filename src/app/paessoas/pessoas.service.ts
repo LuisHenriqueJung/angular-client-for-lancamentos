@@ -54,6 +54,9 @@ statusChange(pessoa: any): Promise<any>{
 cadastrarPessoa(pessoa: Pessoa): Promise<any> {
   return this.http.post(`${this.pessoasUrl}`,pessoa,).toPromise().then((response: any) => {return response});
 }
+atualizar(pessoa: Pessoa): Promise<Pessoa> {
+  return this.http.put<Pessoa>(`${this.pessoasUrl}/${pessoa.codigo}`, pessoa).toPromise().then((response : any) => {return response});
+}
 
 
 }

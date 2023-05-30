@@ -16,33 +16,37 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DropdownModule } from 'primeng/dropdown';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { PessoasRoutingModule } from './pessoas-routing.module';
+import { PanelModule } from 'primeng/panel';
+import { DialogModule } from 'primeng/dialog';
+import {  SharedModule } from "../shared/shared.module";
 
 @NgModule({
-
-  declarations: [
-    PesquisaPessoasComponentComponent,
-    CadatroPessoaComponentComponent,
-  ],
-  imports: [
-    AppRoutingModule,
-    TableModule,
-    ButtonModule,
-    InputTextModule,
-    TabViewModule,
-    TooltipModule,
-    FormsModule,
-    SelectButtonModule,
-    CalendarModule,
-    BrowserAnimationsModule,
-    DropdownModule,
-    InputMaskModule,
-    InputNumberModule,
-    CommonModule,
-   PessoasRoutingModule
-  ],
-  providers: [{ provide: LOCALE_ID, useValue: 'pt-BR' }],
-  exports: []
-
-
+    declarations: [
+        PesquisaPessoasComponentComponent,
+        CadatroPessoaComponentComponent,
+    ],
+    providers: [{ provide: LOCALE_ID, useValue: 'pt-BR' }],
+    exports: [],
+    imports: [
+        AppRoutingModule,
+        TableModule,
+        ButtonModule,
+        InputTextModule,
+        TabViewModule,
+        TooltipModule,
+        FormsModule,
+        SelectButtonModule,
+        CalendarModule,
+        BrowserAnimationsModule,
+        DropdownModule,
+        InputMaskModule,
+        InputNumberModule,
+        CommonModule,
+        PessoasRoutingModule,
+        PanelModule,
+        DialogModule,
+        SharedModule,
+        InputMaskModule,
+    ]
 })
 export class PessoasModule { }

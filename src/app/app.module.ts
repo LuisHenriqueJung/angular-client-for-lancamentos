@@ -29,6 +29,7 @@ import { SegurancaModule } from './seguranca/seguranca.module';
 import { LancamentosModule } from './lancamentos/lancamentos.module';
 import { PessoasModule } from './paessoas/pessoas.module';
 import { MoneyHttpInterceptor } from './seguranca/money-http-interceptor';
+import { RelatoriosService } from './relatorios/relatorios.service';
 
 
 
@@ -63,6 +64,7 @@ registerLocaleData(localePt);
   providers:
   [
     LancamentosService,
+    RelatoriosService,
     MessageService,
     ConfirmationService,
     CategoriasService,

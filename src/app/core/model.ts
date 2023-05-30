@@ -13,6 +13,7 @@ export class Pessoa{
   ativo : boolean  | undefined
   codigo: number  | undefined
   endereco = new Endereco()
+  contatos = new Array<Contato>
 }
 export class Categoria{
   nome?: string
@@ -28,4 +29,22 @@ export class Lancamento {
   pessoa: Pessoa =   new Pessoa();
   categoria = new Categoria();
 
+}
+export class Contato{
+  constructor(
+    codigo?: number,
+    nome?: string,
+    email?: string,
+    telefone?: string
+  ){
+    this.codigo = codigo;
+    this.nome = nome;
+    this.email = email;
+    this.telefone = telefone;
+  }
+
+  codigo? : number
+  nome?: string
+  email?: string
+  telefone?: string
 }

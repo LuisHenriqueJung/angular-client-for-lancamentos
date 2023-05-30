@@ -14,6 +14,8 @@
     <li  class="navbar-usuario">{{ usuarioLogado }}  <i (click)="exibindoMenu = !exibindoMenu" style="cursor: pointer;float: right;" class="pi pi-times"></i> </li>
     <li  routerLink="/lancamentos" (click)="exibindoMenu = !exibindoMenu" class="navbar-menuitem" routerLinkActive="ativo"><a >Lançamentos</a></li>
     <li routerLink="/pessoas"  (click)="exibindoMenu = !exibindoMenu"  *ngIf="temPermissao('ROLE_PESQUISAR_PESSOA')" class="navbar-menuitem"routerLinkActive="ativo"><a >Pessoas</a></li>
+    <li routerLink="/dashboard"  (click)="exibindoMenu = !exibindoMenu"  *ngIf="temPermissao('ROLE_PESQUISAR_PESSOA')" class="navbar-menuitem"routerLinkActive="ativo"><a >Dashboards</a></li>
+    <li routerLink="/relatorio"  (click)="exibindoMenu = !exibindoMenu"  *ngIf="temPermissao('ROLE_PESQUISAR_PESSOA')" class="navbar-menuitem"routerLinkActive="ativo"><a >Relatorios</a></li>
     <hr  >
     <li class="navbar-menuitem"(click)="logout()"><a style="cursor: pointer;">Sair</a></li>
   </ul>
